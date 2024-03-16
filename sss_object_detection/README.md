@@ -12,3 +12,6 @@ The packages required for `sss_object_detection.py` is found in `scripts/require
 On ROS Melodic, `sim_sss_detection_publisher.py` needs to be run on python2 and `sss_object_detection.py` on python3.
 
 On ROS Noetic, both can be run on python3.
+
+### Organizational note
+Some of the new content should be organized better, maybe.
