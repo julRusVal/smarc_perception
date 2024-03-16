@@ -1,6 +1,10 @@
 ## Description
 Scripts for object detection for side scan sonar pings, for simulation and on smarc vehicles.
 
+Detectors:
+- change point detection
+- Image processing based (currently done offline)
+
 ### Python packages requried
 The packages required for `sss_object_detection.py` is found in `scripts/requirements.txt`.
 
