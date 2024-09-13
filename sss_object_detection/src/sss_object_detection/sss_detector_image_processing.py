@@ -7,7 +7,7 @@ from visualization_msgs.msg import Marker, MarkerArray
 from sensor_msgs.msg import Image
 from smarc_msgs.msg import Sidescan
 from vision_msgs.msg import ObjectHypothesisWithPose, Detection2DArray, Detection2D
-# from cv_bridge import CvBridge, CvBridgeError  # Import issues with cv_bridge_boost
+from cv_bridge import CvBridge, CvBridgeError  # Import issues with cv_bridge_boost
 
 from sss_object_detection.consts import ObjectID, Side
 from sss_object_detection.cpd_detector import CPDetector
@@ -91,7 +91,7 @@ class SSSDetector_image_proc:
 
         # Detection visualization
         # Removing cv_bridge as its causing problems cv_bridge_boost
-        # self.bridge = CvBridge()
+        self.bridge = CvBridge()
         self.sidescan_image = np.zeros((500, self.channel_size * 2, 3),
                                        dtype=np.uint8)
         self.detection_image = np.zeros_like(self.sidescan_image,
@@ -292,7 +292,7 @@ class SSSDetector_image_proc:
                         self.detection_pub.publish(detection_msg)
 
         # TODO This was removed for testing
-        # self._publish_sidescan_and_detection_images()
+        self._publish_sidescan_and_detection_images()
 
     def _publish_detection_marker(self, detection_message, message_header):
         if len(detection_message.detections) == 0:
